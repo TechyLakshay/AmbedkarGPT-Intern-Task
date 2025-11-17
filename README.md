@@ -1,57 +1,57 @@
-AmbedkarGPT – Intern Task (RAG + LangChain + Ollama)
+# AmbedkarGPT – Intern Task
 
-A simple command-line Q&A system built using:
+A **RAG-based Q&A system** built using:
+- LangChain  
+- ChromaDB for vector store  
+- Sentence-Transformers (MiniLM) for embeddings  
+- Ollama (Mistral model) as the local LLM  
 
-LangChain
+---
 
-ChromaDB (local vector store)
+##  Project Overview
 
-HuggingFace MiniLM Embeddings
+This project enables you to ask questions about Dr. B. R. Ambedkar’s speech (in `speech.txt`) via a command-line interface.  
+It does:
+1. Load text  
+2. Split into chunks  
+3. Embed with MiniLM  
+4. Store vectors in ChromaDB  
+5. Use a retriever to find relevant chunks  
+6. Use Mistral (Ollama) to answer based on retrieved context  
 
-Ollama (Mistral model)
+---
 
-The system loads speech.txt, splits it into chunks, creates embeddings, stores them in Chroma, retrieves relevant context, and generates answers using a local LLM.
+## Repository Structure
 
-Features:
-1.Local RAG pipeline
-2.No API keys / No internet required
-3.Uses Mistral (Ollama)
-4.Fast & lightweight
-5.Clean and easy to run
-
-Structure:
 AmbedkarGPT-Intern-Task/
 │
-├── main.py
-├── speech.txt
-├── requirements.txt
-├── README.md
-└── db/ (auto-created by Chroma)
-
-Rewuirements:
-Requirements
-
-1.Python 3.8+
-2.Ollama installed
-3.At least one local model (mistral / small model for low RAM) 
+├── main.py # RAG logic
+├── speech.txt # Text data
+├── requirements.txt # Python deps
+├── README.md # This file
+└── db/ # Vector store directory (auto-created)
 
 
-Setup instructions-
 
+---
 
-Clone Repository:
-git clone <your-repo-url>
-cd AmbedkarGPT-Intern-Task
+## 🛠 Requirements & Setup
 
-Create virtual environment
-python -m venv venv
-venv\Scripts\activate   (Windows)
+1. **Install Ollama**  
+   Make sure Ollama is installed and running.
 
-Install dependencies
+2. **Pull Mistral Model**  
+   ```bash
+   ollama pull mistral
+
+3. **Create Virtual Environment & Install Dependencies**
+python -m venv venv  
+source venv/bin/activate  # Linux/macOS  
+venv\Scripts\activate     # Windows  
 pip install -r requirements.txt
 
-Install Ollama + Model
-ollama pull mistral
-
-Run the Project
+How to RUN?
 python main.py
+
+
+
